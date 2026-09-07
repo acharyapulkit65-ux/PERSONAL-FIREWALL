@@ -1,0 +1,47 @@
+{
+  "default_policy": "allow",
+  "rules": [
+    {
+      "name": "Block Telnet",
+      "action": "block",
+      "protocol": "tcp",
+      "dst_port": 23,
+      "direction": "any"
+    },
+    {
+      "name": "Block outbound SMTP (anti-spam)",
+      "action": "block",
+      "protocol": "tcp",
+      "dst_port": 25,
+      "direction": "outbound"
+    },
+    {
+      "name": "Block a known bad host (example)",
+      "action": "block",
+      "protocol": "any",
+      "src_ip": "203.0.113.66",
+      "direction": "any"
+    },
+    {
+      "name": "Allow DNS",
+      "action": "allow",
+      "protocol": "udp",
+      "dst_port": 53,
+      "direction": "any"
+    },
+    {
+      "name": "Allow HTTPS",
+      "action": "allow",
+      "protocol": "tcp",
+      "dst_port": 443,
+      "direction": "any"
+    },
+    {
+      "name": "Block inbound SSH from anywhere (example - edit to your needs)",
+      "action": "block",
+      "protocol": "tcp",
+      "dst_port": 22,
+      "direction": "inbound"
+    }
+  ]
+}
